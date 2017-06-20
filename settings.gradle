@@ -1,0 +1,5 @@
+// settings.gradle
+
+rootProject.name = 'ms-ads-sdk-demo'
+
+include ':app'

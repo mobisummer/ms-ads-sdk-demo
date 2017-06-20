@@ -1,0 +1,30 @@
+<manifest package="com.mbs.sdk.rich.ads.sample"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission
+        android:name="andrdoid.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="18"/>
+
+    <application
+        android:name=".MbsAdsSdkSampleApp"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <meta-data
+          android:name="appKey"
+          android:value="5cef4650-fd27-d158-30ee-cdd01721bf92"/>
+        <activity
+            android:name=".MbsAdsSdkSampleActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+    </application>
+
+</manifest>
