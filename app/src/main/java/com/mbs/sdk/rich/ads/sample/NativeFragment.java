@@ -46,7 +46,7 @@ public class NativeFragment extends Fragment {
   /**
    * You should use your own **PLACEMENT_ID** in production
    */
-  private static final String PLACEMENT_ID = "1662684189370000_1769833153869252";
+  private static final String PLACEMENT_ID = "1662684189370000_1769833153869304";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -131,7 +131,7 @@ public class NativeFragment extends Fragment {
         mBtnShow.setEnabled(false);
         mTvStatus.setText(getString(R.string.ad_start_loading));
 
-        AdRequest request = AdRequest.newBuilder().pub(PLACEMENT_ID).build();
+        AdRequest request = AdRequest.newBuilder().placementId(PLACEMENT_ID).build();
         mNativeAd.loadAd(request);
       }
     });
@@ -171,7 +171,10 @@ public class NativeFragment extends Fragment {
           BitmapDrawable fallback = new BitmapDrawable(getResources(),
                                                        BitmapFactory.decodeResource(getResources(),
                                                                                     R.drawable.cover_stub));
-          if (cover != null && !TextUtils.isEmpty(cover.getUrl())) {
+          if(cover == null && assets.getCovers() != null && assets.getCovers().size() > 0){
+            cover = assets.getCovers().get(0);
+          }
+          if (!TextUtils.isEmpty(cover.getUrl())) {
             ImageDownloader.downloadAndDisplayImage(cover, mIvCover, fallback);
           } else {
             mIvCover.setImageDrawable(fallback);
@@ -240,6 +243,7 @@ public class NativeFragment extends Fragment {
 
     @Override
     public void onAdClosed(Ad ad) {
+      mTvStatus.setText(getString(R.string.ad_closed));
     }
 
     @Override

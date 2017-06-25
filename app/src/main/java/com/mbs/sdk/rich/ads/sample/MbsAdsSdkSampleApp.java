@@ -8,6 +8,6 @@ public class MbsAdsSdkSampleApp extends Application {
   @Override
   public void onCreate() {
     super.onCreate();
-    MSAdsSdk.start(this, "5cef4650-fd27-d158-30ee-cdd01721bf92");
+    MSAdsSdk.start(this, "fd30cd7d-2f70-6abc-2ace-915cf72b8a30");
   }
 }

@@ -18,4 +18,6 @@
 
 -keepattributes *Annotation*
 -keepattributes Signature
+-dontwarn com.mbs.sdk.rich.**
+-dontwarn com.mobisummer.sdk.**
 

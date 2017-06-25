@@ -30,7 +30,7 @@ public class InterstitialFragment extends Fragment {
   /**
    * You should use your own **PLACEMENT_ID** in production
    */
-  private static final String PUB = "1662684189370000_1769833153869252";
+  private static final String PUB = "1662684189370000_1769833153869303";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class InterstitialFragment extends Fragment {
         mBtnShow.setEnabled(false);
         mTvStatus.setText(getString(R.string.ad_start_loading));
 
-        AdRequest request = AdRequest.newBuilder().pub(PUB).build();
+        AdRequest request = AdRequest.newBuilder().placementId(PUB).build();
         mInterstitialAd.loadAd(request);
       }
     });

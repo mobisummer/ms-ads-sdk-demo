@@ -31,7 +31,7 @@ public class NativeTemplateFragment extends Fragment {
   /**
    * You should use your own **PLACEMENT_ID** in production
    */
-  private static final String PLACEMENT_ID = "1662684189370000_1769833153869252";
+  private static final String PLACEMENT_ID = "1662684189370000_1769833153869305";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class NativeTemplateFragment extends Fragment {
         mTvStatus.setText(getString(R.string.ad_start_loading));
         Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
         AdRequestOption option = AdRequestOption.newNativeTemplateBuilder()
-                                                .mediumSize()
+                                                .largeSize()
                                                 .backgroundColor(Color.BLACK)
                                                 .btnBackgroundColor(Color.BLUE)
                                                 .btnTextColor(Color.RED)
@@ -75,7 +75,7 @@ public class NativeTemplateFragment extends Fragment {
                                                 .typeFace(font)
                                                 .build();
         AdRequest request = AdRequest.newBuilder()
-                                     .pub(PLACEMENT_ID)
+                                     .placementId(PLACEMENT_ID)
                                      .withOption(option)
                                      .build();
         mNativeTemplateAd.loadAd(request);
@@ -130,7 +130,7 @@ public class NativeTemplateFragment extends Fragment {
 
     @Override
     public void onAdClosed(Ad ad) {
-
+      mTvStatus.setText(getString(R.string.ad_closed));
     }
 
     @Override

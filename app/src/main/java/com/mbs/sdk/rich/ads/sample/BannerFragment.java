@@ -29,7 +29,7 @@ public class BannerFragment extends Fragment {
   /**
    * You should use your own **PLACEMENT_ID** in production
    */
-  private static final String PLACEMENT_ID = "1662684189370000_1769833153869252";
+  private static final String PLACEMENT_ID = "1662684189370000_1769833153869302";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class BannerFragment extends Fragment {
         mTvStatus.setText(getString(R.string.ad_start_loading));
 
         // Load Banner Ad
-        AdRequest request = AdRequest.newBuilder().pub(PLACEMENT_ID).build();
+        AdRequest request = AdRequest.newBuilder().placementId(PLACEMENT_ID).build();
         mBannerAdView.loadAd(request);
       }
     });
@@ -97,12 +97,13 @@ public class BannerFragment extends Fragment {
     @Override
     public void onAdLoaded(Ad ad) {
       if (ad == mBannerAdView) {
-        mTvStatus.setText(getString(R.string.ad_load_success));
+        mTvStatus.setText(getString(R.string.ad_closed));
       }
     }
 
     @Override
     public void onAdClosed(Ad ad) {
+      Toast.makeText(getActivity(), getString(R.string.ad_closed), Toast.LENGTH_SHORT).show();
     }
 
     @Override

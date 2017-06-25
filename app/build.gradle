@@ -5,8 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-       // applicationId "com.mbs.sdk.ads.demo"
-        applicationId "mobi.myclean.boost"
+        applicationId "com.ms.ads.demo"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
@@ -30,7 +29,7 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
             signingConfig signingConfigs.release
         }
     }
@@ -38,9 +37,8 @@ android {
 
 dependencies {
     compile 'com.android.support:support-v4:23.+'
-
     // Ms Ads Sdk
-    compile 'com.mbs.sdk.rich.ads:msads:1.5.2.411'
+    compile 'com.mbs.sdk.rich.ads:msads:1.5.2.412'
 
     testCompile 'junit:junit:4.12'
 }
