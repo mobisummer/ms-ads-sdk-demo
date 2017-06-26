@@ -38,7 +38,7 @@ android {
 dependencies {
     compile 'com.android.support:support-v4:23.+'
     // Ms Ads Sdk
-    compile 'com.mbs.sdk.rich.ads:msads:1.5.2.412'
+    compile 'com.mbs.sdk.rich.ads:msads:1.0.2.20'
 
     testCompile 'junit:junit:4.12'
 }
