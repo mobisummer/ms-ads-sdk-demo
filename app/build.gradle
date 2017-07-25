@@ -8,8 +8,8 @@ android {
         applicationId "com.ms.ads.demo"
         minSdkVersion 14
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode 28
+        versionName "1.2.1"
     }
 
     lintOptions {
