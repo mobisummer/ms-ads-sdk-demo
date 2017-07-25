@@ -14,7 +14,9 @@ public class MbsAdsSdkSampleActivity extends FragmentActivity implements ActionB
   private MbsFragmentPagerAdapter mViewPagerAdapter;
   private ActionBar mActionBar;
 
-  private String[] mTagNameArray = {"Banner", "Interstitial", "Native", "NativeTemplate"};
+  private String[] mTagNameArray = {
+      "Banner", "Interstitial", "Half Window Interstitial", "App Start", "Native", "Native Template"
+  };
 
   @Override
   public void onCreate(Bundle savedInstanceState) {

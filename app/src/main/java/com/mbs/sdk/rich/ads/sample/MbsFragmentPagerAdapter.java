@@ -20,9 +20,15 @@ public class MbsFragmentPagerAdapter extends FragmentPagerAdapter {
         f = new InterstitialFragment();
         break;
       case 2:
-        f = new NativeFragment();
+        f = new HalfWindowInterstitialFragment();
         break;
       case 3:
+        f = new AppStartFragment();
+        break;
+      case 4:
+        f = new NativeFragment();
+        break;
+      case 5:
         f = new NativeTemplateFragment();
         break;
       default:
