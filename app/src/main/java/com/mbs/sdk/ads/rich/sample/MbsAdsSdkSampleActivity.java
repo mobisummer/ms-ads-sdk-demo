@@ -1,4 +1,4 @@
-package com.mbs.sdk.rich.ads.sample;
+package com.mbs.sdk.ads.rich.sample;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;

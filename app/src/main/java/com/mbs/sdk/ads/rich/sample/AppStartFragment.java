@@ -1,4 +1,4 @@
-package com.mbs.sdk.rich.ads.sample;
+package com.mbs.sdk.ads.rich.sample;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,13 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mbs.sdk.rich.ads.Ad;
-import com.mbs.sdk.rich.ads.AdError;
-import com.mbs.sdk.rich.ads.AdListener;
-import com.mbs.sdk.rich.ads.AdRequest;
-import com.mbs.sdk.rich.ads.InterstitialAd;
+import com.mbs.sdk.ads.rich.Ad;
+import com.mbs.sdk.ads.rich.AdError;
+import com.mbs.sdk.ads.rich.AdListener;
+import com.mbs.sdk.ads.rich.AdRequest;
+import com.mbs.sdk.ads.rich.AdRequestOption;
+import com.mbs.sdk.ads.rich.InterstitialAd;
 
-public class InterstitialFragment extends Fragment {
+public class AppStartFragment extends Fragment {
   private InterstitialAd mInterstitialAd;
   private FrameLayout mContentContainer;
   private LinearLayout mTopContainer;
@@ -70,9 +71,10 @@ public class InterstitialFragment extends Fragment {
         mBtnLoad.setEnabled(false);
         mBtnShow.setEnabled(false);
         mTvStatus.setText(getString(R.string.ad_start_loading));
-
-        AdRequest request = AdRequest.newBuilder().placementId(PLACEMENT_ID)//
-                                     .build();
+        AdRequestOption adRequestOption =
+            AdRequestOption.newInterstitalBuilder().displayInActivity().withTimeout(5).build();
+        AdRequest request =
+            AdRequest.newBuilder().placementId(PLACEMENT_ID).withOption(adRequestOption).build();
         mInterstitialAd.loadAd(request);
       }
     });

@@ -1,28 +1,31 @@
-<manifest package="com.mbs.sdk.rich.ads.sample"
-          xmlns:android="http://schemas.android.com/apk/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.mbs.sdk.ads.rich.sample">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    <uses-permission
-        android:name="andrdoid.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18"/>
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+  <uses-permission
+    android:name="andrdoid.permission.WRITE_EXTERNAL_STORAGE"
+    android:maxSdkVersion="18"/>
 
-    <application
-        android:name=".MbsAdsSdkSampleApp"
-        android:allowBackup="false"
-        android:hardwareAccelerated="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true">
-        <activity
-            android:name=".MbsAdsSdkSampleActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+  <application
+    android:name=".MbsAdsSdkSampleApp"
+    android:allowBackup="false"
+    android:hardwareAccelerated="true"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:supportsRtl="true">
+    <meta-data
+      android:name="appKey"
+      android:value="fd30cd7d-2f70-6abc-2ace-915cf72b8a30"/>
+    <activity
+      android:name=".MbsAdsSdkSampleActivity">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+        <category android:name="android.intent.category.LAUNCHER"/>
+      </intent-filter>
+    </activity>
 
-    </application>
+  </application>
 
 </manifest>

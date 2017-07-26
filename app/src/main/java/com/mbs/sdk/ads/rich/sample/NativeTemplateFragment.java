@@ -1,5 +1,6 @@
-package com.mbs.sdk.rich.ads.sample;
-
+package com.mbs.sdk.ads.rich.sample;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,32 +14,30 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mbs.sdk.rich.ads.Ad;
-import com.mbs.sdk.rich.ads.AdError;
-import com.mbs.sdk.rich.ads.AdListener;
-import com.mbs.sdk.rich.ads.AdRequest;
-import com.mbs.sdk.rich.ads.AdRequestOption;
-import com.mbs.sdk.rich.ads.InterstitialAd;
+import com.mbs.sdk.ads.rich.Ad;
+import com.mbs.sdk.ads.rich.AdError;
+import com.mbs.sdk.ads.rich.AdListener;
+import com.mbs.sdk.ads.rich.AdRequest;
+import com.mbs.sdk.ads.rich.AdRequestOption;
+import com.mbs.sdk.ads.rich.NativeTemplateAd;
 
-public class AppStartFragment extends Fragment {
-  private InterstitialAd mInterstitialAd;
+public class NativeTemplateFragment extends Fragment {
+  private NativeTemplateAd mNativeTemplateAd;
   private FrameLayout mContentContainer;
   private LinearLayout mTopContainer;
   private Button mBtnLoad;
-  private Button mBtnShow;
   private TextView mTvStatus;
 
   /**
    * You should use your own **PLACEMENT_ID** in production
    */
-  private static final String PLACEMENT_ID = "1662684189370000_1769833153869303";
+  private static final String PLACEMENT_ID = "1662684189370000_1769833153869305";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-
-    mInterstitialAd = new InterstitialAd(getActivity());
-    mInterstitialAd.setAdListener(mAdListener);
+    mNativeTemplateAd = new NativeTemplateAd(getActivity());
+    mNativeTemplateAd.setAdListener(mAdListener);
 
     initView();
     initAction();
@@ -48,10 +47,6 @@ public class AppStartFragment extends Fragment {
     mBtnLoad = new Button(getActivity());
     mBtnLoad.setText(getString(R.string.load));
 
-    mBtnShow = new Button(getActivity());
-    mBtnShow.setText(getString(R.string.show));
-    mBtnShow.setEnabled(false);
-
     mTvStatus = new TextView(getActivity());
     mTvStatus.setGravity(Gravity.CENTER);
 
@@ -59,7 +54,6 @@ public class AppStartFragment extends Fragment {
     {
       mTopContainer.setOrientation(LinearLayout.VERTICAL);
       mTopContainer.addView(mBtnLoad);
-      mTopContainer.addView(mBtnShow);
       mTopContainer.addView(mTvStatus);
     }
   }
@@ -69,23 +63,22 @@ public class AppStartFragment extends Fragment {
       @Override
       public void onClick(View v) {
         mBtnLoad.setEnabled(false);
-        mBtnShow.setEnabled(false);
         mTvStatus.setText(getString(R.string.ad_start_loading));
-        AdRequestOption adRequestOption =
-            AdRequestOption.newInterstitalBuilder().displayInActivity().withTimeout(5).build();
-        AdRequest request =
-            AdRequest.newBuilder().placementId(PLACEMENT_ID).withOption(adRequestOption).build();
-        mInterstitialAd.loadAd(request);
-      }
-    });
-
-    mBtnShow.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        mBtnLoad.setEnabled(true);
-        mBtnShow.setEnabled(false);
-
-        mInterstitialAd.show();
+        Typeface font = Typeface.create(Typeface.SANS_SERIF, Typeface.BOLD);
+        AdRequestOption option = AdRequestOption.newNativeTemplateBuilder()
+                                                .largeSize()
+                                                .backgroundColor(Color.BLACK)
+                                                .btnBackgroundColor(Color.BLUE)
+                                                .btnTextColor(Color.RED)
+                                                .descriptionTextColor(Color.GRAY)
+                                                .titleTextColor(Color.RED)
+                                                .typeFace(font)
+                                                .build();
+        AdRequest request = AdRequest.newBuilder()
+                                     .placementId(PLACEMENT_ID)
+                                     .withOption(option)
+                                     .build();
+        mNativeTemplateAd.loadAd(request);
       }
     });
   }
@@ -104,6 +97,11 @@ public class AppStartFragment extends Fragment {
                                                            FrameLayout.LayoutParams.WRAP_CONTENT,
                                                            Gravity.TOP));
 
+    mContentContainer.addView(mNativeTemplateAd,
+                              new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT,
+                                                           FrameLayout.LayoutParams.WRAP_CONTENT,
+                                                           Gravity.BOTTOM));
+
     return mContentContainer;
   }
 
@@ -118,46 +116,42 @@ public class AppStartFragment extends Fragment {
   public void onDestroy() {
     mTopContainer.removeAllViews();
     mTopContainer = null;
-    mInterstitialAd = null;
+    mNativeTemplateAd = null;
     super.onDestroy();
   }
 
   private final AdListener mAdListener = new AdListener() {
     @Override
     public void onAdLoaded(Ad ad) {
-      if (ad == mInterstitialAd) {
-        mBtnShow.setEnabled(true);
+      if (ad == mNativeTemplateAd) {
         mTvStatus.setText(getString(R.string.ad_load_success));
-        mBtnShow.setVisibility(View.VISIBLE);
       }
     }
 
     @Override
     public void onAdClosed(Ad ad) {
-      if (ad == mInterstitialAd) {
-        mTvStatus.setText(getString(R.string.ad_closed));
-      }
+      mTvStatus.setText(getString(R.string.ad_closed));
     }
 
     @Override
     public void onAdShowed(Ad ad) {
-      if (ad == mInterstitialAd) {
+      if (ad == mNativeTemplateAd) {
+        mBtnLoad.setEnabled(true);
         mTvStatus.setText(getString(R.string.ad_showed));
       }
     }
 
     @Override
     public void onAdClicked(Ad ad) {
-      if (ad == mInterstitialAd) {
+      if (ad == mNativeTemplateAd) {
         Toast.makeText(getActivity(), getString(R.string.ad_clicked), Toast.LENGTH_SHORT).show();
       }
     }
 
     @Override
     public void onAdError(Ad ad, AdError adError) {
-      if (ad == mInterstitialAd) {
+      if (ad == mNativeTemplateAd) {
         mBtnLoad.setEnabled(true);
-        mBtnShow.setEnabled(false);
         mTvStatus.setText(getString(R.string.ad_load_error, adError.getErrorMessage()));
       }
     }

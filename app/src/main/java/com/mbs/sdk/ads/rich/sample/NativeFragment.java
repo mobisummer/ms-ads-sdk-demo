@@ -1,4 +1,4 @@
-package com.mbs.sdk.rich.ads.sample;
+package com.mbs.sdk.ads.rich.sample;
 
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -17,14 +17,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mbs.sdk.rich.ads.Ad;
-import com.mbs.sdk.rich.ads.AdError;
-import com.mbs.sdk.rich.ads.AdListener;
-import com.mbs.sdk.rich.ads.AdRequest;
-import com.mbs.sdk.rich.ads.ImageDownloader;
-import com.mbs.sdk.rich.ads.ImageFilter;
-import com.mbs.sdk.rich.ads.NativeAd;
-import com.mbs.sdk.rich.ads.NativeAdAssets;
+import com.mbs.sdk.ads.rich.Ad;
+import com.mbs.sdk.ads.rich.AdError;
+import com.mbs.sdk.ads.rich.AdListener;
+import com.mbs.sdk.ads.rich.AdRequest;
+import com.mbs.sdk.ads.rich.ImageDownloader;
+import com.mbs.sdk.ads.rich.ImageFilter;
+import com.mbs.sdk.ads.rich.NativeAd;
+import com.mbs.sdk.ads.rich.NativeAdAssets;
 
 public class NativeFragment extends Fragment {
   private static final String TAG = "NativeFragment";

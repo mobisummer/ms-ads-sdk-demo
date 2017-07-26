@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MbsAdsSdkSampleDemo</string>
+    <string name="app_name">MbsRichSdkSampleDemo</string>
     <string name="ad_start_loading">Start loading Ad&#8230;</string>
     <string name="ad_load_success">Load Ad Success</string>
     <string name="ad_clicked">Ad Clicked</string>

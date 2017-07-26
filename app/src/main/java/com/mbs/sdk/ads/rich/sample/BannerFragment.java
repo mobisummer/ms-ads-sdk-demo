@@ -1,4 +1,4 @@
-package com.mbs.sdk.rich.ads.sample;
+package com.mbs.sdk.ads.rich.sample;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,11 +13,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mbs.sdk.rich.ads.Ad;
-import com.mbs.sdk.rich.ads.AdError;
-import com.mbs.sdk.rich.ads.AdListener;
-import com.mbs.sdk.rich.ads.AdRequest;
-import com.mbs.sdk.rich.ads.BannerAdView;
+import com.mbs.sdk.ads.rich.Ad;
+import com.mbs.sdk.ads.rich.AdError;
+import com.mbs.sdk.ads.rich.AdListener;
+import com.mbs.sdk.ads.rich.AdRequest;
+import com.mbs.sdk.ads.rich.BannerAdView;
 
 public class BannerFragment extends Fragment {
   private BannerAdView mBannerAdView;
