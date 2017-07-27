@@ -243,7 +243,9 @@ public class NativeFragment extends Fragment {
 
     @Override
     public void onAdClosed(Ad ad) {
-      mTvStatus.setText(getString(R.string.ad_closed));
+      if (ad == mNativeAd) {
+        mTvStatus.setText(getString(R.string.ad_closed));
+      }
     }
 
     @Override

@@ -20,4 +20,6 @@
 -keepattributes Signature
 -dontwarn com.mbs.sdk.ads.**
 -dontwarn com.mobisummer.sdk.**
+-keep class * extends android.support.v4.**{*;}
+-keep class * extends android.app.*;
 
