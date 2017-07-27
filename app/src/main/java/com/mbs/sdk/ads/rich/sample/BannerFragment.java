@@ -97,13 +97,15 @@ public class BannerFragment extends Fragment {
     @Override
     public void onAdLoaded(Ad ad) {
       if (ad == mBannerAdView) {
-        mTvStatus.setText(getString(R.string.ad_closed));
+        mTvStatus.setText(getString(R.string.ad_load_success));
       }
     }
 
     @Override
     public void onAdClosed(Ad ad) {
-      Toast.makeText(getActivity(), getString(R.string.ad_closed), Toast.LENGTH_SHORT).show();
+      if (ad == mBannerAdView) {
+        mTvStatus.setText(getString(R.string.ad_closed));
+      }
     }
 
     @Override

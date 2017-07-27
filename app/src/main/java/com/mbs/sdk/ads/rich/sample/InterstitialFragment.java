@@ -30,7 +30,7 @@ public class InterstitialFragment extends Fragment {
   /**
    * You should use your own **PLACEMENT_ID** in production
    */
-  private static final String PLACEMENT_ID = "1662684189370000_1769833153869303";
+  private static final String PLACEMENT_ID = "1662684189370000_1769833153869305";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
